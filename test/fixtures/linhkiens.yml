@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ten: MyString
+  loai: MyString
+  price: 1
+  tondau: 1
+  nhap: 1
+  xuat: 1
+  toncuoi: 1
+
+two:
+  ten: MyString
+  loai: MyString
+  price: 1
+  tondau: 1
+  nhap: 1
+  xuat: 1
+  toncuoi: 1

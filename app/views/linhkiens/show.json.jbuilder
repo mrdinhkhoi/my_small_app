@@ -1,0 +1,1 @@
+json.partial! "linhkiens/linhkien", linhkien: @linhkien

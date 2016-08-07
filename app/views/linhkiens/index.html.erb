@@ -1,0 +1,80 @@
+<%- model_class = Linhkien -%>
+<div class="page-header">
+  <h1>Thống kê kho</h1>
+</div>
+<table class="table table-striped" id="myTable">
+  <thead>
+    <tr>
+      <th><h4>ID</h4></th>
+      <th><h4>Tên linh kiện</h4></th>
+      <th><h4>Loại</h4></th>
+      <th><h4>Đơn giá</h4></th>
+      <th><h4>SL trước nhập</h4></th>
+      <th><h4>SL nhập</h4></th>
+      <th><h4>SL xuất</h4></th>
+      <th><h4>Tồn kho</h4></th>
+      <th><h4>Trị giá</h4></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+   
+    <% @linhkiens.each do |linhkien| %>
+      <tr>
+        <td><h4><%= link_to linhkien.id, linhkien_path(linhkien) %></h4></td>
+        <td><h4><%= linhkien.ten %></h4></td>
+        <td><h4><%= linhkien.loai %></h4></td>
+        <td><h4><%= linhkien.price %></h4></td>
+        <td><h4><%= linhkien.tondau %></h4></td>
+        <td><h4><%= linhkien.nhap %></h4></td>
+        <td><h4><%= linhkien.xuat %></h4></td>
+        <td><h4><%= linhkien.toncuoi %></h4></td>
+        <td><h4><%= linhkien.toncuoi*linhkien.price %> VND</h4></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_linhkien_path(linhkien), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      linhkien_path(linhkien),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+    
+    
+  </tbody>
+</table>
+
+<h4>
+  Xuất ra file excel: <strong><%= link_to "Excel", linhkiens_path(format: "xls") %></strong> | <%= link_to "CSV", linhkiens_path(format: "csv") %> 
+</h4>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Thêm mới linh kiện
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%- model_class = Linhkien -%>
+      <div class="page-header">
+        <center><h1>Thêm mới linh kiện</h1></center>
+        
+      </div>
+      <%= render :partial => 'form' %>
+
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#myTable').DataTable();
+});
+
+
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+</script>

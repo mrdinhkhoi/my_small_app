@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Tên linh kiện</Data></Cell>
+        <Cell><Data ss:Type="String">Loại</Data></Cell>
+        <Cell><Data ss:Type="String">Đơn giá</Data></Cell>
+        <Cell><Data ss:Type="String">SL trước nhập</Data></Cell>
+        <Cell><Data ss:Type="String">SL nhập</Data></Cell>
+        <Cell><Data ss:Type="String">SL xuất</Data></Cell>
+        <Cell><Data ss:Type="String">Tồn kho</Data></Cell>
+        <Cell><Data ss:Type="String">Trị giá</Data></Cell>
+        <Cell><Data ss:Type="String"> Ngày</Data></Cell>
+        <Cell><Data ss:Type="String"> Tháng</Data></Cell>
+        <Cell><Data ss:Type="String"> Năm</Data></Cell>
+      </Row>
+    <% @linhkiens.each do |linhkien| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= linhkien.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= linhkien.ten %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= linhkien.loai %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= linhkien.price %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= linhkien.tondau %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= linhkien.nhap %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= linhkien.xuat %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= linhkien.toncuoi %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= linhkien.price*linhkien.toncuoi %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= linhkien.created_at.strftime("%d %m %y") %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= linhkien.created_at.strftime("%m %d %y") %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= linhkien.created_at.strftime("%y %m %d") %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

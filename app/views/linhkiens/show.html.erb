@@ -1,0 +1,31 @@
+<%- model_class = Linhkien -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:ten) %>:</strong></dt>
+  <dd><%= @linhkien.ten %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:loai) %>:</strong></dt>
+  <dd><%= @linhkien.loai %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
+  <dd><%= @linhkien.price %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tondau) %>:</strong></dt>
+  <dd><%= @linhkien.tondau %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nhap) %>:</strong></dt>
+  <dd><%= @linhkien.nhap %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:xuat) %>:</strong></dt>
+  <dd><%= @linhkien.xuat %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:toncuoi) %>:</strong></dt>
+  <dd><%= @linhkien.toncuoi %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              linhkiens_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_linhkien_path(@linhkien), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              linhkien_path(@linhkien),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

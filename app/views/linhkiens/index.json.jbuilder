@@ -1,0 +1,1 @@
+json.array! @linhkiens, partial: 'linhkiens/linhkien', as: :linhkien
