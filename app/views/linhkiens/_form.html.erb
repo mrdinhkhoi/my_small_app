@@ -25,7 +25,8 @@
   <div class="form-group">
     <%= f.label :loai, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :loai, :class => 'form-control' %>
+       <%= f.select :loai, ['loai1','loai2', 'Web'], { :include_blank => '-- Chon mot loai --' }, :required => true %>
+
     </div>
     <%=f.error_span(:loai) %>
   </div>
