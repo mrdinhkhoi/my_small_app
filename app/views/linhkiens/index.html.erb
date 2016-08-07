@@ -59,7 +59,10 @@
     <div class="modal-content">
       <%- model_class = Linhkien -%>
       <div class="page-header">
-        <center><h1>Thêm mới linh kiện</h1></center>
+        <center>
+          <h1>Thêm mới linh kiện</h1><br />
+          <h4><%= Time.now.strftime("%d-%m-%y")%> </h4>
+        </center>
         
       </div>
       <%= render :partial => 'form' %>
